@@ -5,20 +5,25 @@ interface Button extends ButtonHTMLAttributes<HTMLButtonElement>{
     ref?: RefObject<HTMLButtonElement>
     add?: boolean;
     del?: boolean;
+    round?: boolean;
 }
 
 
-const MyButton: FC<Button> = ({add, del,...props}) => {
+const MyButton: FC<Button> = ({round, add, del, children,...props}) => {
     if (add) return (
-        <button {...props} className={classes.addBtn}>
+        <button {...props} className={classes.addBtn}>{children}
         </button>
     );
     else if (del) return (
-        <button {...props} className={classes.deleteBtn }>
+        <button {...props} className={classes.deleteBtn}>{children}
+        </button>
+    );
+    else if (round) return (
+        <button {...props} className={classes.roundButton}>{children}
         </button>
     );
     else return (
-            <button {...props}>
+            <button {...props} className={classes.generalBtn}>{children}
             </button>
         );
 

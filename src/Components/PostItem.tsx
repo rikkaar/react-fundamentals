@@ -23,6 +23,8 @@ const PostItem: FC<Data> = ({post, deleteP}) => {
 
     }
 
+       
+
     return (
         <div className="post">
             <div className="post__content">
