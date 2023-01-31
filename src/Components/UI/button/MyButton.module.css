@@ -1,0 +1,18 @@
+.deleteBtn,
+.addBtn {
+    width: 130px;
+    height: 60px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    background-color: #dc9292;
+}
+
+.addBtn:hover {
+    background-color: #92cbdc;
+}
