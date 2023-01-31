@@ -35,7 +35,7 @@
     max-width: 60%;
 }
 
-.post__title{
+.post__title {
     max-width: 40%;
     margin-bottom: 10px;
 }
@@ -60,30 +60,41 @@
     background-color: #92cbdc;
 }
 
-.form{
+.form {
     position: relative;
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
-.form__btn{
+.form__btn {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.form__title{
+.form__title {
     max-width: 40%;
     margin-top: 17px;
     margin-bottom: 30px;
     height: 30px;
 }
 
-.text-field{
+.sort-field,
+.text-field {
     font-size: 20px;
     border: 1px solid #bdbdbd;
     border-radius: 0.25rem;
     padding: 0.375rem 0.75rem;
+}
+
+.search {
+    display: flex;
+    gap: 30px;
+}
+
+.search-field {
+    width: 100%;
 }
 
 .form__descr {

@@ -26,7 +26,6 @@ const AddForm = ({create}: AddInterface) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (body && title) {
-            console.log(JSON.stringify({"title": title, "body": body, "created": Date.now()}))
             fetch("http://localhost:4000/posts", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
