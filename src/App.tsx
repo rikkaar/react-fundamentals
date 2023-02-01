@@ -7,39 +7,32 @@ import PostFilter from "./Components/PostFilter";
 import PostList from "./Components/PostList";
 import Modal from "./Components/UI/Modal/Modal";
 import MyButton from "./Components/UI/button/MyButton";
-
+import {usePosts} from "./Components/hooks/usePosts";
+import PostService from "./Components/API/PostService";
+import set = Reflect.set;
+import Loader from "./Components/UI/Loader/Loader";
+import {useFetching} from "./Components/hooks/useFetching";
 
 function App() {
     const [posts, setPosts] = useState<Post[]>([])
-    const [filter, setFilter] = useState({sort: 'created', query: ''})
+    const [filter, setFilter] = useState({sort: '', query: ''})
     const [inputValue, setInputValue] = useState('')
     const [modal, setModal] = useState(false)
+    const searchedPosts = usePosts(posts, filter.sort, filter.query)
+    const [getPosts, isLoading, error] = useFetching(async () => {
+        const response = await PostService.api<Post[]>("http://localhost:4000/posts?")
+        setPosts(response)
+    })
 
     useEffect(() => {
         getPosts()
     }, [])
 
 
-    function api<T>(url: string): Promise<T> {
-        return fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText)
-                }
-                return response.json() as Promise<T>
-            })
-    }
-
-    let getPosts = () => {
-        api<Post[]>("http://localhost:4000/posts")
-            .then(data => setPosts(data))
-        console.log("Запрос отправлен")
-    }
-
     const deletePostCallback = (toDelete: string) => {
-        // let filteredArray = posts.filter(post => post.id !== toDelete);
-        // setPosts(filteredArray)
-        getPosts()
+        let filteredArray = posts.filter(post => post.id !== toDelete);
+        setPosts(filteredArray)
+        // getPosts()
     }
 
     const createPost = (newPost: Post) => {
@@ -48,24 +41,17 @@ function App() {
         setModal(false)
     }
 
-    const sortPosts = (sort: string, data: Post[]) => {
-        if (sort == 'created') {
-            return data.sort((a, b) => b.created.toString().localeCompare(a.created.toString()))
-        } else if (sort == 'title') {
-            return data.sort((a, b) => a.title.localeCompare(b.title))
-        } else return []
-    }
-
-    const searchedPosts = useMemo(() => {
-        return sortPosts(filter.sort, posts).filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
-    }, [posts, filter])
 
     return (
         <div className={"app"}>
             <Modal visible={modal} setVisible={setModal}><AddForm create={createPost}/></Modal>
             <PostFilter inputValue={inputValue} setInputValue={setInputValue} filter={filter} setFilter={setFilter}/>
             <MyButton round={true} onClick={() => setModal(true)}>+</MyButton>
-            <PostList posts={searchedPosts} deleteP={deletePostCallback}/>
+            {error && <h1 style={{textAlign: "center", marginTop: '15px',}}>Произошла ошибка :(</h1>}
+            {isLoading
+                ? <Loader/>
+                : <PostList posts={searchedPosts} deleteP={deletePostCallback}/>
+            }
         </div>
     );
 }
