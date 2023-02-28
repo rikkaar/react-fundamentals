@@ -9,6 +9,15 @@
     cursor: pointer;
 }
 
+.generalBtn {
+    width: 100px;
+    height: 60px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
 .roundAdd{
 
 }
@@ -34,4 +43,9 @@
 
 .addBtn:hover {
     background-color: #92cbdc;
+}
+
+.generalBtn:hover {
+    background-color: #d7d7d7;
+    transform: scale(1.08);
 }

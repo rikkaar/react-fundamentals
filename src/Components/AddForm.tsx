@@ -4,7 +4,7 @@ import setPosts from '../App'
 import {Post} from "../types/types";
 
 interface AddInterface {
-    create: (newPost: Post) => void
+    create: () => void
 }
 
 const AddForm = ({create}: AddInterface) => {
@@ -16,12 +16,6 @@ const AddForm = ({create}: AddInterface) => {
     const {title, body} = formData;
     const buttonRef = useRef<HTMLButtonElement>(null)
 
-    // const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    //     setFormData((prevstate) => ({
-    //         ...prevstate,
-    //         [e.target.id]: e.target.value,
-    //     }))
-    // };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -29,12 +23,12 @@ const AddForm = ({create}: AddInterface) => {
             fetch("http://localhost:4000/posts", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({"title": title, "body": body, "created": Date.now()})
+                body: JSON.stringify({"title": title, "body": body, "created": Date.now(), "userId": 1})
             }).then(response => {
                     if (!response.ok) {
                         throw new Error(response.statusText)
                     }
-                    create({title: title, body: body, created: "", id: ""})
+                    create()
                     setFormData(defaultFormData);
 
                 }
@@ -51,7 +45,7 @@ const AddForm = ({create}: AddInterface) => {
             <form className={"form"} onSubmit={handleSubmit}>
                 <input value={title} id={"title"} onChange={event => setFormData({...formData, title: event.target.value})} required={true} className={"form__title text-field"} type="text" placeholder="Название поста"/>
                 <textarea value={body} id={"body"} onChange={event => setFormData({...formData, body: event.target.value})} required={true} className={"form__descr text-field"} placeholder="Описание поста"/>
-                <button ref={buttonRef} disabled={true} className={"btn add-btn form__btn"}>Добавить</button>
+                <button ref={buttonRef} disabled={true} className={body && title ? "btn add-btn form__btn" : "btn form__btn"}>Добавить</button>
             </form>
     );
     // const [title, setTitle] = useState<String>('')

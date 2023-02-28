@@ -20,5 +20,4 @@ export const useFetching = (callback: () => Promise<void>) => {
     }
 
     return [fetching, isLoading, error] as const
-
 }

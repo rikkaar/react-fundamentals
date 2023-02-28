@@ -1,172 +1,50 @@
 {
   "posts": [
     {
-      "title": "qfewrgth",
-      "body": "wegreht",
-      "created": 1675193995347,
-      "id": 1
+      "id": 1,
+      "title": "Первый пост",
+      "body": "О том как добавлять комменты в tsx",
+      "created": 1675279518707,
+      "userId": 1,
+      "postId": 1
     },
     {
-      "title": "zzz",
-      "body": "zz",
-      "created": 1675194002712,
-      "id": 3
+      "title": "Второй пост",
+      "body": "Новый",
+      "created": 1675330968318,
+      "userId": 1,
+      "id": 2,
+      "postId": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "Супер",
+      "created": 1675279518707,
+      "userId": "2",
+      "postId": 1
     },
     {
-      "title": "D",
-      "body": "SGB",
-      "created": 1675194187857,
-      "id": 4
+      "id": "3",
+      "body": "Отлично",
+      "created": 1675279518708,
+      "userId": "4",
+      "postId": 1
     },
     {
-      "title": "Wegwaerg",
-      "body": "WEG",
-      "created": 1675194190939,
-      "id": 5
+      "id": "4",
+      "body": "Ужас",
+      "created": 1675279518709,
+      "userId": "3",
+      "postId": 1
     },
     {
-      "title": "WegWEG",
-      "body": "Weg",
-      "created": 1675194193954,
-      "id": 6
-    },
-    {
-      "title": "zxcv",
-      "body": "qwedfrgh",
-      "created": 1675194197180,
-      "id": 7
-    },
-    {
-      "title": "wertg",
-      "body": "wedrfgbh",
-      "created": 1675194199463,
-      "id": 8
-    },
-    {
-      "title": "AEG AE4G",
-      "body": " E4G34G",
-      "created": 1675194209179,
-      "id": 13
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196148512,
-      "id": 18
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196148857,
-      "id": 19
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250210,
-      "id": 20
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250558,
-      "id": 21
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250574,
-      "id": 22
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250608,
-      "id": 23
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250621,
-      "id": 24
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250857,
-      "id": 26
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196250890,
-      "id": 27
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196334481,
-      "id": 28
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196351030,
-      "id": 29
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196351375,
-      "id": 30
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196351407,
-      "id": 31
-    },
-    {
-      "title": "feuibvuaerv",
-      "body": "bodaebaery",
-      "created": 1675196351430,
-      "id": 32
-    },
-    {
-      "title": "cvb ",
-      "body": "cvb",
-      "created": 1675251870471,
-      "id": 33
-    },
-    {
-      "title": "aaa",
-      "body": "aaa",
-      "created": 1675251873958,
-      "id": 34
-    },
-    {
-      "title": "dcfvgbnm",
-      "body": "vfgbnm",
-      "created": 1675253208400,
-      "id": 36
-    },
-    {
-      "title": "edfg",
-      "body": "rgdfg",
-      "created": 1675266521401,
-      "id": 37
-    },
-    {
-      "title": "aaa",
-      "body": "aaa",
-      "created": 1675266523635,
-      "id": 38
-    },
-    {
-      "title": "Z",
-      "body": "Z",
-      "created": 1675266987547,
-      "id": 39
+      "id": "5",
+      "body": "Автор - съешь говна",
+      "created": 1675279518725,
+      "userId": "3",
+      "postId": 1
     }
   ]
 }
